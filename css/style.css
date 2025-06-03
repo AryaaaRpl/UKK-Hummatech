@@ -67,18 +67,24 @@ a:hover {
 
 .cars-table {
         background-image: linear-gradient(to bottom right, black, white);
-
+        padding-bottom: 40px;
 }
 
-
-.cars-table > table {
-    background-color: black;
+.modal-body img {
+  transition: transform 0.3s ease;
 }
+
+.modal-body img:hover {
+  transform: scale(1.05);
+}
+
 
 .card-img-top:hover {
   transform: scale(0.8);
   transition: all 0.5s ease-in-out;
-  transition-delay: 1s;
+  transition-delay: 1ms;
+filter: drop-shadow(0 0 1rem crimson);
+border-radius: 10%;
 }
 
 .cars-section {
@@ -125,6 +131,15 @@ a:hover {
   .carousel {
     padding: 0 8px;
   }
+
+  .cars-section {
+    display: block;
+  }
+
+  .card {
+    width: 18rem !important;
+    height: 41.5rem !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -139,4 +154,5 @@ a:hover {
   .carousel-control-next {
     width: 10%; 
   }
+
 }
