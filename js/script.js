@@ -2,6 +2,16 @@
   const spinner = document.getElementById('spinnerPajero');
   const image = document.getElementById('imgPajero');
 
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const loader = document.getElementById('page');
+
+      if(loader) {
+        loader.classList.add('d-none');
+      }
+    }, 2000);
+  })
   modal.addEventListener('show.bs.modal', () => {
     if (spinner.classList.contains('d-none')) {
       spinner.classList.remove('d-none');
@@ -99,5 +109,8 @@
       imageC.classList.add('d-none');
     }
   });
+
+  
+  
 
 
