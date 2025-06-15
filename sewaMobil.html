@@ -20,102 +20,6 @@
       object-fit: cover;
       z-index: -1;
     }
-.login-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  transform: translate(-50%, -50%);
-  background: rgba(24, 20, 20, 0.035);
-  backdrop-filter: blur(10px);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-}
-
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-
-.login-box .user-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #bdb8b8;
-  font-size: 12px;
-}
-
-.login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #ffffff;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
-}
-
-.login-box a:hover {
-  background: #03f40f;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #03f40f,
-              0 0 25px #03f40f,
-              0 0 50px #03f40f,
-              0 0 100px #03f40f;
-}
-
-.login-box a span {
-  position: absolute;
-  display: block;
-}
-
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-
-  50%,100% {
-    left: 100%;
-  }
-}
-
-.login-box a span:nth-child(1) {
-  bottom: 2px;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #03f40f);
-  animation: btn-anim1 2s linear infinite;
-}
 
 #page {
  position: fixed;
@@ -278,34 +182,153 @@
   }
 }
 
+.confirmation-card {
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .confirmation-header {
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        .car-img {
+            border-radius: 8px;
+            height: 180px;
+            object-fit: cover;
+        }
+        .is-invalid {
+            border-color: #dc3545;
+        }
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.875em;
+            display: none;
+        }
+        .was-validated .form-select:invalid ~ .invalid-feedback,
+        .was-validated .form-select:invalid ~ .invalid-tooltip {
+            display: block;
+        }
     </style>
+    <!-- background video -->
     <video class="background-vid" autoplay loop muted>
     <source src="assets/13820717_960_540_30fps.mp4" type="video/mp4"/>
   </video>
-<div class="login-box" id="sewaForm" novalidate>
-  <form>
-    <h1 style="font-size: large; color: rgba(245, 245, 245, 0.457); text-align: center; margin-bottom: 10px;">Formulir Penyewaan Mobil</h1>
-    <div class="user-box">
-      <input type="text" name="" id="merk" required="">
-      <label>Merk Mobil</label>
-      <div class="text-danger small" id="merkError"></div>
-    </div>
-    <div class="user-box">
-      <input type="text" name="" id="layanan" required="">
-      <label>Layanan</label>
-      <div class="text-danger small" id="layananError"></div>
-    </div><center>
-    <div class="user-box">
-      <input type="text" name="" id="email" required="">
-      <label>Email</label>
-      <div class="text-danger small" id="emailError"></div>
-    </div><center>
-    <a href="#" onclick="validateForm(event)">
-           SEND
-       <span></span>
-    </a></center>
-  </form>
+  <div class="container py-4">
+        <!-- Form Pemesanan (Sederhana) -->
+        <div class="confirmation-card card mb-4" style="background: rgba(115, 115, 115, 0.3); margin-top: 15%;">
+            <div class="card-body">
+              <div class="gif" style="display: flex; justify-content: center; margin: 0 auto;">
+              <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/29a439f8-e581-4f46-b20e-c76e6cf4eeab/fzWEwbfOtA.lottie" background="transparent" speed="1.5" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
 </div>
+                <h4 class="card-title mb-4 text-white">Form Penyewaan Mobil</h4>
+                <form id="rentalForm" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="carSelect" class="form-label text-white">Pilih Mobil</label>
+                        <select class="form-select" id="carSelect" required>
+                            <option value="" selected disabled>Pilih merk mobil</option>
+                            <option value="Toyota Innova">Toyota Innova</option>
+                            <option value="Mitsubishi Pajero">Mitsubishi Pajero</option>
+                            <option value="Mini Cooper">Mini Cooper</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Silakan pilih merk mobil (5-20 karakter)
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="pickupDate" class="form-label text-white">Tanggal Ambil</label>
+                            <input type="date" class="form-control" id="pickupDate" required>
+                            <div class="invalid-feedback">
+                                Silakan isi tanggal ambil
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="returnDate" class="form-label text-white">Tanggal Kembali</label>
+                            <input type="date" class="form-control" id="returnDate" required>
+                            <div class="invalid-feedback">
+                                Silakan isi tanggal kembali
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary w-100" onclick="validateForm()">
+                        Lihat Konfirmasi
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Konfirmasi -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="confirmation-header modal-header">
+                        <h5 class="modal-title">Konfirmasi Penyewaan</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <!-- Info Mobil -->
+                        <div class="row mb-3">
+                            <div class="col-md-5">
+                                <img src="https://via.placeholder.com/300x200?text=Toyota+Avanza" class="car-img w-100" id="confirmCarImage">
+                            </div>
+                            <div class="col-md-7">
+                                <h5 id="confirmCarName">Toyota Avanza</h5>
+                                <p><i class="fas fa-users text-muted"></i> <span id="confirmCarSeats">7</span> Penumpang</p>
+                                <p><i class="fas fa-gas-pump text-muted"></i> <span id="confirmCarFuel">Bensin</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Detail Sewa -->
+                        <div class="border-top pt-3">
+                            <h6>Detail Penyewaan</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <small>Ambil:</small>
+                                    <p id="confirmPickupDate">15 Jun 2023, 10:00</p>
+                                </div>
+                                <div class="col-6">
+                                    <small>Kembali:</small>
+                                    <p id="confirmReturnDate">20 Jun 2023, 10:00</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rincian Biaya -->
+                        <div class="border-top pt-3">
+                            <h6>Rincian Biaya</h6>
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><span id="rentalDays">5</span> hari x <span id="dailyPrice">Rp400.000</span></td>
+                                    <td class="text-end" id="basePrice">Rp2.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Asuransi</td>
+                                    <td class="text-end" id="insuranceCost">Rp150.000</td>
+                                </tr>
+                                <tr class="fw-bold">
+                                    <td>Total</td>
+                                    <td class="text-end" id="totalPrice">Rp2.150.000</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Ubah</button>
+                        <button class="btn btn-primary" onclick="processPayment()">Bayar Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- loading -->
 <div id="page">
         <div id="container">
             <div id="ring"></div>
@@ -316,6 +339,7 @@
         </div>
 
 <script>
+  // loading
   window.addEventListener('load', function() {
     setTimeout(function() {
       const loader = document.getElementById('page');
@@ -324,47 +348,99 @@
       }
     }, 2000); 
   });
- function validateForm(e) {
-  e.preventDefault();
-
-  const merk = document.getElementById("merk");
-  const layanan = document.getElementById("layanan");
-  const email = document.getElementById("email");
-
-  const merkError = document.getElementById("merkError");
-  const layananError = document.getElementById("layananError");
-  const emailError = document.getElementById("emailError");
-
-  let valid = true;
-
-  merkError.textContent = "";
-  layananError.textContent = "";
-  emailError.textContent = "";
-
-  if (merk.value.length < 5 || merk.value.length > 20) {
-    merkError.textContent = "Merk Mobil harus 5-20 karakter.";
-    valid = false;
-  }
-
-  if (layanan.value.length < 5 || layanan.value.length > 20) {
-    layananError.textContent = "Layanan harus 5-20 karakter.";
-    valid = false;
-  }
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email.value)) {
-    emailError.textContent = "Format email tidak valid.";
-    valid = false;
-  }
-
-  if (valid) {
-    alert("Data berhasil dikirim!");
-    window.location.href = 'index.html';
-  }
-}
-
-
+  // list mobil
+        const cars = {
+            "Toyota Innova": {
+                image: "assets/homePagecar2.jpg",
+                seats: "7",
+                fuel: "Bensin",
+                price: 400000
+            },
+            "Mitsubishi Pajero": {
+                image: "assets/homePagecar1.jpg",
+                seats: "5",
+                fuel: "Bensin",
+                price: 350000
+            },
+            "Mini Cooper": {
+                image: "assets/homePagecar3.jpg",
+                seats: "7",
+                fuel: "Bensin",
+                price: 450000
+            },
+        };
+// validasi form mobil
+        function validateForm() {
+            const form = document.getElementById('rentalForm');
+            const carSelect = document.getElementById('carSelect');
+            
+            if (carSelect.value === "" || carSelect.value.length < 5 || carSelect.value.length > 20) {
+                carSelect.classList.add('is-invalid');
+                return;
+            } else {
+                carSelect.classList.remove('is-invalid');
+            }
+            
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+            
+            showConfirmation();
+        }
+// konfirmasi
+        function showConfirmation() {
+            const carSelect = document.getElementById('carSelect');
+            const pickupDate = document.getElementById('pickupDate');
+            const returnDate = document.getElementById('returnDate');
+            
+            const selectedCar = carSelect.value;
+            const carInfo = cars[selectedCar];
+            
+            const startDate = new Date(pickupDate.value);
+            const endDate = new Date(returnDate.value);
+            const diffTime = Math.abs(endDate - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            const pickupDateStr = startDate.toLocaleDateString('id-ID', options);
+            const returnDateStr = endDate.toLocaleDateString('id-ID', options);
+            
+            const basePrice = diffDays * carInfo.price;
+            const insurance = 150000;
+            const totalPrice = basePrice + insurance;
+            
+            const formatRupiah = (number) => {
+                return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+            };
+            
+            document.getElementById('confirmCarImage').src = carInfo.image;
+            document.getElementById('confirmCarName').textContent = selectedCar;
+            document.getElementById('confirmCarSeats').textContent = carInfo.seats;
+            document.getElementById('confirmCarFuel').textContent = carInfo.fuel;
+            document.getElementById('confirmPickupDate').textContent = pickupDateStr + ", 10:00";
+            document.getElementById('confirmReturnDate').textContent = returnDateStr + ", 10:00";
+            document.getElementById('rentalDays').textContent = diffDays;
+            document.getElementById('dailyPrice').textContent = formatRupiah(carInfo.price);
+            document.getElementById('basePrice').textContent = formatRupiah(basePrice);
+            document.getElementById('insuranceCost').textContent = formatRupiah(insurance);
+            document.getElementById('totalPrice').textContent = formatRupiah(totalPrice);
+            
+            const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            modal.show();
+        }
+// proses pembayaran + kehalaman awal
+        function processPayment() {
+            alert('Pembayaran berhasil diproses! Terima kasih telah menyewa dengan kami.');
+            document.getElementById('rentalForm').reset();
+            document.getElementById('rentalForm').classList.remove('was-validated');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
+            modal.hide();
+            window.location.href = 'index.html';
+        }
 </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
