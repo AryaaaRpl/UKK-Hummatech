@@ -129,7 +129,8 @@ a:hover {
 }
 
 .card-img-top {
-    width: 100%;
+    width: 90%;
+    object-fit: cover !important;
     height: auto;
     transition: all 0.5s ease-in-out;
     border-radius: 10%;
@@ -590,6 +591,52 @@ a:hover {
 
 #tableWrapper {
     display: none;
+}
+
+.product-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.product-card {
+  width: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: white;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-info .detail {
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  color: #333;
+  font-size: 14px;
+}
+
+.product-card:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.product-card:hover .detail {
+  opacity: 1;
+  max-height: 100px;
+  margin-top: 0.5rem;
 }
 
 @keyframes badassFadeIn {

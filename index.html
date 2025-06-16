@@ -1,505 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Jasa Penyewaan Mobil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Website Jasa Penyewaan Mobil</title>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" rel="stylesheet"/>
+<script crossorigin="anonymous" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-
-</head>
+<style>
+.product-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.product-card .detail {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+  color: white;
+}
+.product-card:hover .detail {
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+.card {
+  height: 800px !important; 
+}
+</style></head>
 <body>
-  <video class="background-vid" autoplay loop muted>
-    <source src="assets/13820717_960_540_30fps.mp4" type="video/mp4"/>
-  </video>
+  <!-- animasi background -->
+<video autoplay="" class="background-vid" loop="" muted="">
+<source src="assets/13820717_960_540_30fps.mp4" type="video/mp4"/>
+</video>
+<!-- loading -->
 <div id="page">
-        <div id="container">
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="h3">SewaMobilku</div>
-        </div>
+<div id="container">
+<div id="ring"></div>
+<div id="ring"></div>
+<div id="ring"></div>
+<div id="ring"></div>
+<div id="h3">SewaMobilku</div>
+</div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow-sm" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
-  <div class="container">
-    <!-- Logo -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="/assets/logo.png" alt="Logo Rental Mobil" class="me-2" style="height: 40px; border-radius: 50%;">
-      <span class="fw-bold text-warning">SewaMobilku</span>
-    </a>
-
-    <!-- Tombol Toggle Mobile -->
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUtama">
-      <span class="navbar-toggler-icon text-light"></span>
-    </button>
-
-    <!-- Menu Navigasi -->
-    <div class="collapse navbar-collapse" id="navbarUtama">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item mx-2">
-          <a class="nav-link text-light position-relative" href="#mobil-terbaik">
-            <i class="fas fa-home me-1"></i>
+<div class="container">
+<!-- Logo -->
+<a class="navbar-brand d-flex align-items-center" href="#">
+<img alt="Logo Rental Mobil" class="me-2" src="/assets/logo.png" style="height: 40px; border-radius: 50%;"/>
+<span class="fw-bold text-warning">SewaMobilku</span>
+</a>
+<!-- Tombol Toggle Mobile -->
+<button class="navbar-toggler border-0" data-bs-target="#navbarUtama" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon text-light"></span>
+</button>
+<!-- Menu Navigasi -->
+<div class="collapse navbar-collapse" id="navbarUtama">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<li class="nav-item mx-2">
+<a class="nav-link text-light position-relative" href="#mobil-terbaik">
+<i class="fas fa-home me-1"></i>
             Beranda
           </a>
-        </li>
-        
-        <li class="nav-item dropdown mx-2">
-          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown">
-            <i class="fas fa-car me-1"></i>
+</li>
+<li class="nav-item dropdown mx-2">
+<a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button">
+<i class="fas fa-car me-1"></i>
             Layanan
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#tabel-mobil">Sewa Mobil</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item mx-2">
-          <a class="nav-link text-light" href="#harga">
-            <i class="fas fa-tag me-1"></i>
+<ul class="dropdown-menu dropdown-menu-dark">
+<li><a class="dropdown-item" href="#tabel-mobil">Sewa Mobil</a></li>
+</ul>
+</li>
+<li class="nav-item mx-2">
+<a class="nav-link text-light" href="#harga">
+<i class="fas fa-tag me-1"></i>
             Harga
           </a>
-        </li>
-        
-        <li class="nav-item mx-2">
-          <a class="nav-link text-light" href="#contact">
-            <i class="fas fa-phone me-1"></i>
+</li>
+<li class="nav-item mx-2">
+<a class="nav-link text-light" href="#contact">
+<i class="fas fa-phone me-1"></i>
             Kontak
           </a>
-        </li>
-        
-      <li class="nav-item mx-2">
-          <a class="nav-link text-light" href="login.html">
-            <i class="bi bi-box-arrow-in-right"></i>
+</li>
+<li class="nav-item mx-2">
+<a class="nav-link text-light" href="login.html">
+<i class="bi bi-box-arrow-in-right"></i>
             Masuk
           </a>
-        </li>
-      </ul>
-
-      <!-- Pencarian dan Tombol -->
-      <form class="d-flex ms-auto" role="search" onsubmit="searchTable(); return false;">
-        <div class="input-group">
-          <input type="search" class="form-control bg-transparent text-light border-end-0" placeholder="Cari mobil..." aria-label="Search">
-          <button class="btn btn-outline-warning" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
+</li>
+</ul>
+<!-- Pencarian dan Tombol -->
+<form class="d-flex ms-auto" onsubmit="searchTable(); return false;" role="search">
+<div class="input-group">
+<input aria-label="Search" class="form-control bg-transparent text-light border-end-0" placeholder="Cari mobil..." type="search"/>
+<button class="btn btn-outline-warning" type="submit">
+<i class="fas fa-search"></i>
+</button>
+</div>
+</form>
+</div>
+</div>
 </nav>
-
 <!-- Halaman beranda -->
 <section class="home" id="home">
-  <div data-aos="fade-up"
-     data-aos-duration="3000">
+<div data-aos="fade-up" data-aos-duration="3000">
 <div class="home-container">
-    <div class="row justify-content-start">
-      <div class="col-12 col-md-8"> 
-        <h1 class="title text-center ms-3 mb-4">Jasa Penyewaan Mobil</h1> 
-        <p class="text-white text-center">SewaMobilku adalah layanan penyewaan mobil terpercaya yang siap memenuhi kebutuhan perjalanan Anda, baik untuk keperluan bisnis, liburan, atau acara spesial. Dengan pilihan kendaraan yang beragam dan harga yang bersaing, kami menawarkan pengalaman berkendara yang nyaman dan aman. Proses pemesanan mudah, dengan pelayanan 24 jam, serta pengiriman mobil langsung ke lokasi Anda. Percayakan perjalanan Anda bersama SewaMobilku, solusi transportasi praktis dan hemat.</p>
-        <div class="button1">
-<a href="#mobil-terbaik" class="animated-button">
-  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-  <span class="text">Lihat-Lihat Dulu</span>
-  <span class="circle"></span>
-  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
+<div class="row justify-content-start">
+<div class="col-12 col-md-8">
+<h1 class="title text-center ms-3 mb-4" id="title"></h1>
+<p class="text-white text-center">SewaMobilku adalah layanan penyewaan mobil terpercaya yang siap memenuhi kebutuhan perjalanan Anda, baik untuk keperluan bisnis, liburan, atau acara spesial. Dengan pilihan kendaraan yang beragam dan harga yang bersaing, kami menawarkan pengalaman berkendara yang nyaman dan aman. Proses pemesanan mudah, dengan pelayanan 24 jam, serta pengiriman mobil langsung ke lokasi Anda. Percayakan perjalanan Anda bersama SewaMobilku, solusi transportasi praktis dan hemat.</p>
+<div class="button1">
+<a class="animated-button" href="#mobil-terbaik">
+<svg class="arr-2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+</svg>
+<span class="text">Lihat-Lihat Dulu</span>
+<span class="circle"></span>
+<svg class="arr-1" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+</svg>
 </a>
 </div>
-      </div>
-    </div>
-   <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/homePagecar1.jpg" class="img1" style="width:min-content !important;" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/homePagecar2.jpg" class="img2" style="width:min-content !important;" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="assets/homePagecar3.jpg" class="img3" style="width:min-content !important;" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 </div>
-  </div>
+<div class="carousel slide" id="carouselExampleIndicators">
+<div class="carousel-indicators">
+<button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>
+<button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button>
+<button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators" type="button"></button>
 </div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img alt="..." class="img1" src="assets/homePagecar1.jpg" style="width:min-content !important;"/>
+</div>
+<div class="carousel-item">
+<img alt="..." class="img2" src="assets/homePagecar2.jpg" style="width:min-content !important;"/>
+</div>
+<div class="carousel-item">
+<img alt="..." class="img3" src="assets/homePagecar3.jpg" style="width:min-content !important;"/>
+</div>
+</div>
+<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators" type="button">
+<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators" type="button">
+<span aria-hidden="true" class="carousel-control-next-icon"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+</div>
+
 </section>
 <!-- 3 MOBIL TERBAIK UNTUK PERJALANAN JAUH -->
 <section class="cars-section" id="mobil-terbaik">
-  <div data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card" style="width: 25rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
-  <img src="assets/cars-card1-removebg-preview.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Pajero Sport</h5>
-    <p class="card-text">Mitsubishi New Pajero Sport adalah SUV 7-seater yang tangguh dan mewah, cocok untuk berbagai kondisi jalan, baik off-road maupun perkotaan. Mobil ini memiliki berbagai fitur canggih dan desain modern yang membuatnya nyaman digunakan sehari-hari, baik untuk keluarga maupun petualangan di alam liar.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item" style="background-color: transparent; color: white;">Road-Trip</li>
-    <li class="list-group-item" style="background-color: transparent; color: white;">Off-Road</li>
-    <li class="list-group-item" style="background-color: transparent; color: white;">Family-Trip</li>
-  </ul>
-  <div class="card-body">
-    <a href="https://www.mitsubishi-motors.co.id/our-cars/new-pajero-sport" class="card-link ">See More</a>
-  </div>
+<div data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="300">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card product-card" style="width: 25rem; height: 40.5rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
+<img alt="..." class="card-img-top" src="assets/cars-card1-removebg-preview.png"/>
+<div class="card-body">
+<h5 class="card-title">Pajero Sport</h5>
+<p class="card-text">Klik untuk informasi lebih lengkap. Mobil nyaman dan irit BBM!</p>
+<div class="detail">Mitsubishi New Pajero Sport adalah SUV 7-seater yang tangguh dan mewah, cocok untuk berbagai kondisi jalan, baik off-road maupun perkotaan. Mobil ini memiliki berbagai fitur canggih dan desain modern yang membuatnya nyaman digunakan sehari-hari, baik untuk keluarga maupun petualangan di alam liar.</div></div>
 </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
-  <div class="container">
-        <div class="card" style="width: 25rem; height: 40.5rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
-  <img src="assets/cars-card2-removebg-preview.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Toyota Innova</h5>
-    <p class="card-text">Toyota Kijang Innova adalah MPV yang sangat populer di Indonesia, dikenal dengan ruang interior yang luas dan kenyamanan yang baik. Innova tersedia dalam berbagai varian, termasuk Kijang Innova Reborn dan Kijang Innova Zenix. Innova Zenix sendiri memiliki varian hybrid yang semakin diminati.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"style="background-color: transparent; color: white;">Road-Trip</li>
-    <li class="list-group-item"style="background-color: transparent; color: white;">Save-Petrol</li>
-    <li class="list-group-item"style="background-color: transparent; color: white;">Family-Trip</li>
-  </ul>
-  <div class="card-body">
-    <a href="https://www.toyota.astra.co.id/product/kijang-innova" class="card-link">See More</a>
-  </div>
 </div>
-      </div>
-    </div>
-  </div>
 </div>
-<div data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
-  <div class="container">
-<div class="card" style="width: 25rem; height: 40.5rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
-  <img src="assets/cars-card3-removebg-preview.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Mini Cooper</h5>
-    <p class="card-text">Mini Cooper adalah mobil hatchback ikonik buatan Inggris, terkenal dengan desainnya yang unik dan kompak. Mobil ini pertama kali diproduksi oleh British Motor Corporation (BMC) pada tahun 1959 dan hingga kini menjadi salah satu model yang paling populer di dunia otomotif</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"style="background-color: transparent; color: white;">Save Petrol</li>
-    <li class="list-group-item"style="background-color: transparent; color: white;">Four-Seats-Family</li>
-  </ul>
-  <div class="card-body">
-    <a href="https://www.minicooperindonesia.com/?gad_source=1&gad_campaignid=20734397894&gbraid=0AAAAABhKCy16K1h_ZLS_MM5oQSe97xaAY&gclid=CjwKCAjwl_XBBhAUEiwAWK2hzkW6wHI8kLa4_Vfbdc5iWfyjMyi46XbOJLBuxuIu-A1HwiZHv2gHJhoCVFAQAvD_BwE" class="card-link">See More</a>
-  </div>
 </div>
-      </div>
-    </div>
-  </div>
 </div>
+<div data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="300">
+<div class="container">
+<div class="card product-card" style="width: 25rem; height: 40.5rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
+<img alt="..." class="card-img-top" src="assets/cars-card2-removebg-preview.png"/>
+<div class="card-body">
+<h5 class="card-title">Toyota Innova</h5>
+<p class="card-text">Klik untuk informasi lebih lengkap. Mobil nyaman dan irit BBM!</p>
+<div class="detail">Toyota Kijang Innova adalah MPV yang sangat populer di Indonesia, dikenal dengan ruang interior yang luas dan kenyamanan yang baik. Innova tersedia dalam berbagai varian, termasuk Kijang Innova Reborn dan Kijang Innova Zenix. Innova Zenix sendiri memiliki varian hybrid yang semakin diminati.</div></div>
+</div>
+</div>
+</div>
+
+
+<div data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-offset="300">
+<div class="container">
+<div class="card product-card" style="width: 25rem; height: 40.5rem; background-color: transparent; color: white; backdrop-filter: blur(20px); border-radius: 10px;">
+<img alt="..." class="card-img-top" src="assets/cars-card3-removebg-preview.png"/>
+<div class="card-body">
+<h5 class="card-title">Mini Cooper</h5>
+<p class="card-text">Klik untuk informasi lebih lengkap. Mobil nyaman dan irit BBM!</p>
+<div class="detail">Mini Cooper adalah mobil hatchback ikonik buatan Inggris, terkenal dengan desainnya yang unik dan kompak. Mobil ini pertama kali diproduksi oleh British Motor Corporation (BMC) pada tahun 1959 dan hingga kini menjadi salah satu model yang paling populer di dunia otomotif</div></div>
+</div>
+</div>
+</div>
+
+
 </section>
 <!-- Spesifikasi Mobil Yang Dapat Disewa -->
 <section class="cars-table" id="tabel-mobil">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center mt-5">
-        <div data-aos="fade-left"
-     data-aos-offset="500"
-     data-aos-duration="500">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center mt-5">
+<div data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
 <div>
-    <button class="btn2" onclick="showTable('fade')"><i class="animation"></i>➡️Lihat/Tutup Tabel⬅️<i class="animation"></i>
-    </button>
-</div>
-</div>
-        <div class="comparison-table">
-        <div class="table-header">
-            <h2><i class="fas fa-car-side"></i> PERBANDINGAN MOBIL PREMIUM</h2>
-            <p>Spesifikasi lengkap Mitsubishi Pajero, Toyota Innova, dan Mini Cooper</p>
-        </div>
-        <div class="table-responsive" id="tableWrapper">
-            <table class="table table-glass"id="table">
-                <thead>
-                    <tr>
-                        <th width="25%">SPESIFIKASI</th>
-                        <th width="25%" class="text-center"><span class="car-brand pajero">PAJERO</span></th>
-                        <th width="25%" class="text-center"><span class="car-brand innova">INNOVA</span></th>
-                        <th width="25%" class="text-center"><span class="car-brand mini">MINI COOPER</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><i class="fas fa-gas-pump spec-icon"></i> Bahan Bakar</td>
-                        <td class="text-center"><span class="badge-feature">Diesel</span></td>
-                        <td class="text-center"><span class="badge-feature">Bensin/Diesel</span></td>
-                        <td class="text-center"><span class="badge-feature">Bensin</span></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-horse-head spec-icon"></i> Tenaga Maksimum</td>
-                        <td class="text-center">181 HP @ 3,500 rpm</td>
-                        <td class="text-center">148 HP @ 5,600 rpm</td>
-                        <td class="text-center">192 HP @ 5,000 rpm</td>
-                    </tr>
-                    <tr class="highlight">
-                        <td><i class="fas fa-tachometer-alt spec-icon"></i> Akselerasi (0-100 km/jam)</td>
-                        <td class="text-center">12.5 detik</td>
-                        <td class="text-center">11.5 detik</td>
-                        <td class="text-center">7.1 detik</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-cogs spec-icon"></i> Transmisi</td>
-                        <td class="text-center">5-speed Automatic</td>
-                        <td class="text-center">6-speed Automatic</td>
-                        <td class="text-center">7-speed Dual Clutch</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-users spec-icon"></i> Kapasitas</td>
-                        <td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
-                        <td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
-                        <td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-ruler-combined spec-icon"></i> Dimensi (PxLxT)</td>
-                        <td class="text-center">4,825 x 1,855 x 1,835 mm</td>
-                        <td class="text-center">4,735 x 1,830 x 1,795 mm</td>
-                        <td class="text-center">3,850 x 1,727 x 1,414 mm</td>
-                    </tr>
-                    <tr class="highlight">
-                        <td><i class="fas fa-weight spec-icon"></i> Berat Kosong</td>
-                        <td class="text-center">2,205 kg</td>
-                        <td class="text-center">1,760 kg</td>
-                        <td class="text-center">1,265 kg</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-truck-monster spec-icon"></i> Sistem Penggerak</td>
-                        <td class="text-center"><span class="badge-feature">4WD Super Select</span></td>
-                        <td class="text-center"><span class="badge-feature">2WD</span></td>
-                        <td class="text-center"><span class="badge-feature">FWD</span></td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-gas-pump spec-icon"></i> Konsumsi BBM</td>
-                        <td class="text-center">9.2 km/liter</td>
-                        <td class="text-center">11.5 km/liter</td>
-                        <td class="text-center">14.8 km/liter</td>
-                    </tr>
-                    <tr class="highlight">
-                        <td><i class="fas fa-money-bill-wave spec-icon"></i> Harga Mulai</td>
-                        <td class="text-center">Rp 600 jutaan</td>
-                        <td class="text-center">Rp 400 jutaan</td>
-                        <td class="text-center">Rp 700 jutaan</td>
-                    </tr>
-                    <tr>
-                        <td><i class="fas fa-star spec-icon"></i> Fitur Unggulan</td>
-                        <td class="text-center">
-                            <span class="badge-feature">Off-road</span>
-                            <span class="badge-feature">Tangguh</span>
-                            <span class="badge-feature">Ground Clearance Tinggi</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge-feature">Nyaman</span>
-                            <span class="badge-feature">Ekonomis</span>
-                            <span class="badge-feature">Luas</span>
-                        </td>
-                        <td class="text-center">
-                            <span class="badge-feature">Desain Ikonik</span>
-                            <span class="badge-feature">Performa</span>
-                            <span class="badge-feature">Premium</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0">
-        <button class="button type1" id="sewa">
+<button class="btn2" onclick="showTable('fade')"><i class="animation"></i>➡️Lihat/Tutup Tabel⬅️<i class="animation"></i>
 </button>
 </div>
-    </div>
-
-    </div>
-  </div>
-  </div>
+</div>
+<div class="comparison-table">
+<div class="table-header">
+<h2><i class="fas fa-car-side"></i> PERBANDINGAN MOBIL PREMIUM</h2>
+<p>Spesifikasi lengkap Mitsubishi Pajero, Toyota Innova, dan Mini Cooper</p>
+</div>
+<div class="table-responsive" id="tableWrapper">
+<table class="table table-glass" id="table">
+<thead>
+<tr>
+<th width="25%">SPESIFIKASI</th>
+<th class="text-center" width="25%"><span class="car-brand pajero">PAJERO</span></th>
+<th class="text-center" width="25%"><span class="car-brand innova">INNOVA</span></th>
+<th class="text-center" width="25%"><span class="car-brand mini">MINI COOPER</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><i class="fas fa-gas-pump spec-icon"></i> Bahan Bakar</td>
+<td class="text-center"><span class="badge-feature">Diesel</span></td>
+<td class="text-center"><span class="badge-feature">Bensin/Diesel</span></td>
+<td class="text-center"><span class="badge-feature">Bensin</span></td>
+</tr>
+<tr>
+<td><i class="fas fa-horse-head spec-icon"></i> Tenaga Maksimum</td>
+<td class="text-center">181 HP @ 3,500 rpm</td>
+<td class="text-center">148 HP @ 5,600 rpm</td>
+<td class="text-center">192 HP @ 5,000 rpm</td>
+</tr>
+<tr class="highlight">
+<td><i class="fas fa-tachometer-alt spec-icon"></i> Akselerasi (0-100 km/jam)</td>
+<td class="text-center">12.5 detik</td>
+<td class="text-center">11.5 detik</td>
+<td class="text-center">7.1 detik</td>
+</tr>
+<tr>
+<td><i class="fas fa-cogs spec-icon"></i> Transmisi</td>
+<td class="text-center">5-speed Automatic</td>
+<td class="text-center">6-speed Automatic</td>
+<td class="text-center">7-speed Dual Clutch</td>
+</tr>
+<tr>
+<td><i class="fas fa-users spec-icon"></i> Kapasitas</td>
+<td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
+<td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
+<td class="text-center"><i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i> <i class="fas fa-user"></i></td>
+</tr>
+<tr>
+<td><i class="fas fa-ruler-combined spec-icon"></i> Dimensi (PxLxT)</td>
+<td class="text-center">4,825 x 1,855 x 1,835 mm</td>
+<td class="text-center">4,735 x 1,830 x 1,795 mm</td>
+<td class="text-center">3,850 x 1,727 x 1,414 mm</td>
+</tr>
+<tr class="highlight">
+<td><i class="fas fa-weight spec-icon"></i> Berat Kosong</td>
+<td class="text-center">2,205 kg</td>
+<td class="text-center">1,760 kg</td>
+<td class="text-center">1,265 kg</td>
+</tr>
+<tr>
+<td><i class="fas fa-truck-monster spec-icon"></i> Sistem Penggerak</td>
+<td class="text-center"><span class="badge-feature">4WD Super Select</span></td>
+<td class="text-center"><span class="badge-feature">2WD</span></td>
+<td class="text-center"><span class="badge-feature">FWD</span></td>
+</tr>
+<tr>
+<td><i class="fas fa-gas-pump spec-icon"></i> Konsumsi BBM</td>
+<td class="text-center">9.2 km/liter</td>
+<td class="text-center">11.5 km/liter</td>
+<td class="text-center">14.8 km/liter</td>
+</tr>
+<tr class="highlight">
+<td><i class="fas fa-money-bill-wave spec-icon"></i> Harga Mulai</td>
+<td class="text-center">Rp 600 jutaan</td>
+<td class="text-center">Rp 400 jutaan</td>
+<td class="text-center">Rp 700 jutaan</td>
+</tr>
+<tr>
+<td><i class="fas fa-star spec-icon"></i> Fitur Unggulan</td>
+<td class="text-center">
+<span class="badge-feature">Off-road</span>
+<span class="badge-feature">Tangguh</span>
+<span class="badge-feature">Ground Clearance Tinggi</span>
+</td>
+<td class="text-center">
+<span class="badge-feature">Nyaman</span>
+<span class="badge-feature">Ekonomis</span>
+<span class="badge-feature">Luas</span>
+</td>
+<td class="text-center">
+<span class="badge-feature">Desain Ikonik</span>
+<span class="badge-feature">Performa</span>
+<span class="badge-feature">Premium</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div data-aos="fade-zoom-in" data-aos-delay="300" data-aos-easing="ease-in-back" data-aos-offset="0">
+<button class="button type1" id="sewa">
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- Harga -->
 <section class="list-harga" id="harga">
-  <div data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
- <div class="price-list-container">
-        <div class="price-list-header">
-            <h1>Price List - Penyewaan Mobil</h1>
-            <p>Berikut adalah daftar harga untuk layanan penyewaan mobil kami</p>
+<div data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+<div class="price-list-container">
+<div class="price-list-header">
+<h1>Price List - Penyewaan Mobil</h1>
+<p>Berikut adalah daftar harga untuk layanan penyewaan mobil kami</p>
+</div>
+<div class="price-section">
+<h2><span>🚗</span> Paket Harian</h2>
+<table class="price-table">
+<thead>
+<tr>
+<th>Mobil</th>
+<th>Durasi</th>
+<th>Harga</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mini Cooper</td>
+<td>12 Jam</td>
+<td class="highlight">Rp 350.000</td>
+</tr>
+<tr>
+<td></td>
+<td>24 Jam</td>
+<td class="highlight">Rp 450.000</td>
+</tr>
+<tr>
+<td>Innova Reborn</td>
+<td>12 Jam</td>
+<td class="highlight">Rp 450.000</td>
+</tr>
+<tr>
+<td></td>
+<td>24 Jam</td>
+<td class="highlight">Rp 550.000</td>
+</tr>
+<tr>
+<td>Fortuner / Pajero</td>
+<td>12 Jam</td>
+<td class="highlight">Rp 800.000</td>
+</tr>
+<tr>
+<td></td>
+<td>24 Jam</td>
+<td class="highlight">Rp 1.000.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="price-section">
+<h2><span>📅</span> Paket Mingguan (7 Hari)</h2>
+<table class="price-table">
+<tbody>
+<tr>
+<td>Mini Cooper</td>
+<td></td>
+<td class="highlight">Rp 2.500.000</td>
+</tr>
+<tr>
+<td>Innova Reborn</td>
+<td></td>
+<td class="highlight">Rp 3.500.000</td>
+</tr>
+<tr>
+<td>Fortuner / Pajero</td>
+<td></td>
+<td class="highlight">Rp 6.500.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="price-section">
+<h2><span>📆</span> Paket Bulanan (30 Hari)</h2>
+<table class="price-table">
+<tbody>
+<tr>
+<td>Mini Cooper</td>
+<td></td>
+<td class="highlight">Rp 8.000.000</td>
+</tr>
+<tr>
+<td>Innova Reborn</td>
+<td></td>
+<td class="highlight">Rp 10.000.000</td>
+</tr>
+<tr>
+<td>Fortuner / Pajero</td>
+<td></td>
+<td class="highlight">Rp 18.000.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="price-section">
+<h2><span>⚡</span> Fasilitas Tambahan</h2>
+<ul class="facilities-list">
+<li>Driver (+Rp 100.000/hari)</li>
+<li>BBM (Opsional)</li>
+<li>Free Antar-Jemput (Area Kota)</li>
+</ul>
+</div>
+<div class="price-section" style="text-align: center;">
+<div class="contact-info" id="contact">
+<div class="contact-item">📞 0812-1234-45678</div>
+<div class="contact-item"><a href="mailto:gt1xtplayer@gmail.com">📧 info@sewamobilku.com</a></div>
+<div class="contact-item">📱 @SewaMobilku</div>
+</div>
+</div>
+<div class="terms">
+            Syarat &amp; Ketentuan Berlaku
         </div>
-        
-        <div class="price-section">
-            <h2><span>🚗</span> Paket Harian</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>Mobil</th>
-                        <th>Durasi</th>
-                        <th>Harga</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mini Cooper</td>
-                        <td>12 Jam</td>
-                        <td class="highlight">Rp 350.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>24 Jam</td>
-                        <td class="highlight">Rp 450.000</td>
-                    </tr>
-                    <tr>
-                        <td>Innova Reborn</td>
-                        <td>12 Jam</td>
-                        <td class="highlight">Rp 450.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>24 Jam</td>
-                        <td class="highlight">Rp 550.000</td>
-                    </tr>
-                    <tr>
-                        <td>Fortuner / Pajero</td>
-                        <td>12 Jam</td>
-                        <td class="highlight">Rp 800.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>24 Jam</td>
-                        <td class="highlight">Rp 1.000.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="price-section">
-            <h2><span>📅</span> Paket Mingguan (7 Hari)</h2>
-            <table class="price-table">
-                <tbody>
-                    <tr>
-                        <td>Mini Cooper</td>
-                        <td></td>
-                        <td class="highlight">Rp 2.500.000</td>
-                    </tr>
-                    <tr>
-                        <td>Innova Reborn</td>
-                        <td></td>
-                        <td class="highlight">Rp 3.500.000</td>
-                    </tr>
-                    <tr>
-                        <td>Fortuner / Pajero</td>
-                        <td></td>
-                        <td class="highlight">Rp 6.500.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="price-section">
-            <h2><span>📆</span> Paket Bulanan (30 Hari)</h2>
-            <table class="price-table">
-                <tbody>
-                    <tr>
-                        <td>Mini Cooper</td>
-                        <td></td>
-                        <td class="highlight">Rp 8.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>Innova Reborn</td>
-                        <td></td>
-                        <td class="highlight">Rp 10.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>Fortuner / Pajero</td>
-                        <td></td>
-                        <td class="highlight">Rp 18.000.000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="price-section">
-            <h2><span>⚡</span> Fasilitas Tambahan</h2>
-            <ul class="facilities-list">
-                <li>Driver (+Rp 100.000/hari)</li>
-                <li>BBM (Opsional)</li>
-                <li>Free Antar-Jemput (Area Kota)</li>
-            </ul>
-        </div>
-        
-        <div class="price-section" style="text-align: center;">
-            <div class="contact-info" id="contact">
-                <div class="contact-item">📞 0812-1234-45678</div>
-                <div class="contact-item"><a href="mailto:gt1xtplayer@gmail.com">📧 info@sewamobilku.com</a></div>
-                <div class="contact-item">📱 @SewaMobilku</div>
-            </div>
-        </div>
-        
-        <div class="terms">
-            Syarat & Ketentuan Berlaku
-        </div>
-    </div>
-    </div>
+</div>
+</div>
 </section>
 <!-- Footer -->
 <footer class="blur-footer text-center text-white py-3">
-  <p class="mb-0">&copy; 2025 SewaMobilku. All rights reserved.</p>
+<p class="mb-0">© 2025 SewaMobilku. All rights reserved.</p>
 </footer>
-
 <script src="js/script.js"></script>
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
 <script> 
+// animasi mengetik
+new TypeIt("#title", {
+    strings: "Jasa Penyewaan Mobil, Berkualitas, Ramah Lingkungan",
+    speed: 100,
+    loop: true,
+    waitUntilVisible: true,
+}).go();
+// fungsi pencarian
 function searchTable() {
   const input = document.getElementById("searchInput");
   const filter = input.value.toLowerCase();
   const table = document.getElementById("table");
   const rows = table.getElementsByTagName("tr");
-
+// logika pencarian
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
     const text = row.textContent.toLowerCase();
     row.style.display = text.includes(filter) ? "" : "none";
   }
-
+// smooth scroll boy
   const tableSection = document.getElementById("tabel-mobil");
   if (tableSection) {
     tableSection.scrollIntoView({ behavior: "smooth" });
   }
-
+// animasi tabel pada saat terlihat/terbuka
   const wrapper = document.getElementById("tableWrapper");
   if (wrapper.style.display === "none" || wrapper.style.display === "") {
     wrapper.style.display = "block";
@@ -508,7 +484,7 @@ function searchTable() {
     wrapper.classList.add("fade-in");
   }
 }
-
+// tombol munculkan atau sembunyikan tabel
 function toggleTable() {
     const wrapper = document.getElementById('tableWrapper');
 
@@ -528,7 +504,7 @@ function toggleTable() {
       }, { once: true });
     }
   }
-
+// tombol sewa dibawah tabel
   document.querySelector('.btn2').onclick = toggleTable;
   const sewaButton = document.getElementById('sewa');
 
@@ -537,10 +513,9 @@ function toggleTable() {
     window.location.href = 'login.html';
   });
 
- 
+//  aos animasi boy
   AOS.init();
 
 </script>
-
 </body>
 </html>

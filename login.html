@@ -17,6 +17,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      object-fit: cover;
     }
     .background-vid {
       position: fixed;
@@ -35,11 +36,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 700px;
+      width: 426px;
     }
     .form {
       width: 400px;
       height: 400px;
-      background-color: rgba(255, 255, 255, 0.047);
+      background-color: rgba(255, 255, 255, 0.052);
       backdrop-filter: blur(5px);
       display: flex;
       align-items: center;
@@ -211,6 +214,34 @@
 .gif {
   gap: 10px;
 }
+
+@media screen and (max-width: 768px){
+  .form {
+    backdrop-filter: none;
+  }
+
+  .title {
+    text-shadow: 4px 4px 4px  gray;
+    font-size: 50px;
+    color: aqua;
+    z-index: 20;
+  }
+
+  .input::placeholder{
+    color: white;
+  }
+  
+  .container {
+    position:absolute;
+    display: block;
+  }
+
+  .container .gif {
+    width: 200px;
+    transform: translateX(100px) !important;
+    transform: translateY(-100px);
+  }
+}
   </style>
 </head>
 <body>
@@ -220,8 +251,8 @@
   </video>
   <div class="container">
     <div class="gif">
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-<dotlottie-player src="https://lottie.host/785d061e-00ee-4f7c-a9d9-9a8728c1415e/meuGcTrPby.lottie" background="transparent" speed="1.5" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module" class="gif-a"></script>
+<dotlottie-player src="https://lottie.host/785d061e-00ee-4f7c-a9d9-9a8728c1415e/meuGcTrPby.lottie" background="transparent" speed="1.5" class="gif-a" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
 </div>
     <form class="form needs-validation" id="loginForm" novalidate>
   <p class="title">Login Dulu!</p>
@@ -246,7 +277,7 @@
   <button class="btn" type="submit">Login</button>
 </form>
   </div>
-
+<!-- loading -->
   <div id="page">
     <div id="container">
       <div id="ring"></div>
@@ -293,7 +324,7 @@ form.addEventListener('submit', function (event) {
 
   const username = usernameInput.value.trim();
   const password = passwordInput.value;
-
+// validasi data username dan password
   const isUsernameValid = /^[A-Z][a-zA-Z]*$/.test(username);
 const isPasswordValid = (
   password.length >= 8 &&
@@ -310,7 +341,7 @@ if (!isPasswordValid) {
   passwordInput.classList.remove('is-invalid');
 }
 
-
+// jika validasi salah dan tidak
   if (!username || !isUsernameValid) {
     usernameInput.classList.add('is-invalid');
     document.getElementById('usernameFeedback').textContent = "Username harus dimulai dengan huruf kapital (contoh: Arya).";
@@ -318,7 +349,7 @@ if (!isPasswordValid) {
   } else {
     usernameInput.classList.remove('is-invalid');
   }
-
+// jika validasi benar
   if (!valid) {
     event.preventDefault();
   } else {
@@ -326,7 +357,7 @@ if (!isPasswordValid) {
     window.location.href = 'sewaMobil.html';
   }
 });
-
+// menambah class is-invalid ketika salah username maupun password
 usernameInput.addEventListener('input', () => {
   usernameInput.classList.remove('is-invalid');
 });
