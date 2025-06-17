@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #000;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.container .slide .item{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.slide .item:nth-child(3){
+    left: 50%;
+}
+.slide .item:nth-child(4){
+    left: calc(50% + 220px);
+}
+.slide .item:nth-child(5){
+    left: calc(50% + 440px);
+}
+
+/* here n = 0, 1, 2, 3,... */
+.slide .item:nth-child(n + 6){
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+
+
+.item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+
+
+.slide .item:nth-child(2) .content{
+    display: block;
+}
+
+
+.content .name{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+
+@keyframes animate {
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+
+
+.button {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    pointer-events: none; /* supaya tidak ganggu konten tengah */
+}
+
+.button button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background 0.3s ease;
+}
+
+.button button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.button button:hover{
+    background: #ababab;
+    color: #fff;
+} 
+
+
+.back {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px;
+    border-radius: 50%;
+    color: white !important;
+    z-index: 9999;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.back:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: black !important;
+}
+
+@media (max-width: 768px) {
+    .slide .item {
+        display: none;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    /* Gambar utama (tengah layar) */
+    .slide .item:nth-child(2) {
+        display: block;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        height: 60%;
+        z-index: 2;
+    }
+
+    /* Gambar berikutnya (pojok kanan bawah sebagai thumbnail) */
+    .slide .item:nth-child(3) {
+        display: block;
+        width: 120px;
+        height: 80px;
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+        z-index: 1;
+    }
+
+    /* Konten teks */
+    .item .content {
+        position: absolute;
+        bottom: 15%;
+        left: 5%;
+        width: 90%;
+        text-align: left;
+        color: white;
+        z-index: 3;
+    }
+
+    .content .name {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .content .des {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .content button {
+        padding: 8px 14px;
+        font-size: 13px;
+        background: #fff;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+    }
+
+    /* Tombol navigasi */
+    .button {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        z-index: 4;
+    }
+
+    .button button {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        color: #000;
+    }
+
+    .back {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 50%;
+        color: white !important;
+        z-index: 5;
+    }
+}
+.kembali {
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+}
+
+.kembali:before {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+.kembali:hover:before {
+  background-color: #fff;
+  width: 3rem;
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+    </style>
+    <a href="tabel.html" class="kembali">
+  Kembali
+</a>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <div class="container">
+
+        <div class="slide">
+
+            
+            <div class="item" style="background-image: url(https://images.pexels.com/photos/2676096/pexels-photo-2676096.jpeg?_gl=1*1d4ts9b*_ga*MTgwNDM1NDQxNi4xNzUwMTI5MjM0*_ga_8JE65Q40S6*czE3NTAxMjkyMzMkbzEkZzEkdDE3NTAxMjkyNTAkajQzJGwwJGgw);">
+                <div class="content">
+                    <div class="name">Mitsubishi Pajero</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://i.pinimg.com/736x/2f/ea/d8/2fead8f47f60a26610ec9944ea54332f.jpg);">
+                <div class="content">
+                    <div class="name">Toyota Innova</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://i.pinimg.com/736x/33/f7/70/33f770ab90f8e5e7b6da2d48616fe37c.jpg);">
+                <div class="content">
+                    <div class="name">Mini Cooper</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://i.pinimg.com/736x/6e/c1/3b/6ec13b8a9e8d52095dec6a4896610404.jpg);">
+                <div class="content">
+                    <div class="name">Mitsubishi Pajero</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://i.pinimg.com/736x/9f/17/88/9f1788afdb2b4dbeb77ef41e411bc7f7.jpg);">
+                <div class="content">
+                    <div class="name">Mitsubishi Pajero</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://i.pinimg.com/736x/66/43/40/664340769ba72cbbc3f1cd932164f61d.jpg);">
+                <div class="content">
+                    <div class="name">Mitsubishi Pajero</div>
+                    <div class="des">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!</div>
+                    <button>Lihat Lebih Lanjut</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="button">
+    <button class="prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="next"><i class="fa-solid fa-chevron-right"></i></button>
+</div>
+<a href="index.html" class="back" title="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<div id="particles-js"></div>
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+
+    <script>
+        let next = document.querySelector('.next')
+let prev = document.querySelector('.prev')
+
+next.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').appendChild(items[0])
+})
+
+prev.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+})
+particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60 },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" },
+        "polygon": { "nb_sides": 5 },
+      },
+      "color": { "value": "#ffffff" },
+      "opacity": { "value": 0.2 },
+      "size": { "value": 3 },
+      "move": {
+        "enable": true,
+        "speed": 1.5,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "bounce": false,
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+    </script>
+</body>
+</html>

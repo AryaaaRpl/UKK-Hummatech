@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Spesifikasi Mobil</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" rel="stylesheet"/>
+<script crossorigin="anonymous" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <style>
+        .btn {
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgb(14, 14, 26);
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+
+.btn:active {
+  scale: 0.92;
+}
+
+.btn:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: rgb(4, 4, 38);
+}
+
+/* From Uiverse.io by portseif */ 
+.kembali {
+  align-items: center;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+}
+
+.kembali:before {
+  background-color: #fff;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  margin-right: 10px;
+  transition: all .42s cubic-bezier(.25,.8,.25,1);
+  width: 0;
+}
+
+.kembali:hover:before {
+  background-color: #fff;
+  width: 3rem;
+}
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+    </style>
+
+<a href="index.html" class="kembali">
+  Kembali
+</a>
+<section class="cars-table" id="tabel-mobil">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center mt-5">
+<div data-aos="fade-left" data-aos-duration="500" data-aos-offset="500">
+<div>
+<button class="btn2" onclick="showTable('fade')"><i class="animation"></i>➡️Lihat/Tutup Tabel⬅️<i class="animation"></i>
+</button>
+</div>
+</div>
+<div class="comparison-table">
+  <div class="table-header">
+    <h2><i class="fas fa-car-side"></i> PERBANDINGAN MOBIL PREMIUM</h2>
+    <p>Spesifikasi lengkap Mitsubishi Pajero, Toyota Innova, dan Mini Cooper</p>
+  </div>
+  <div class="table-responsive" id="tableWrapper">
+    <table class="table table-glass table-striped" id="table">
+      <thead>
+        <tr>
+          <th>SPESIFIKASI</th>
+          <th class="text-center"><span class="car-brand pajero">PAJERO</span></th>
+          <th class="text-center"><span class="car-brand innova">INNOVA</span></th>
+          <th class="text-center"><span class="car-brand mini">MINI COOPER</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i class="fas fa-gas-pump spec-icon"></i> Bahan Bakar</td>
+          <td class="text-center"><span class="badge-feature">Diesel</span></td>
+          <td class="text-center"><span class="badge-feature">Bensin/Diesel</span></td>
+          <td class="text-center"><span class="badge-feature">Bensin</span></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-horse-head spec-icon"></i> Tenaga Maksimum</td>
+          <td class="text-center">181 HP @ 3,500 rpm</td>
+          <td class="text-center">148 HP @ 5,600 rpm</td>
+          <td class="text-center">192 HP @ 5,000 rpm</td>
+        </tr>
+        <tr class="highlight">
+          <td><i class="fas fa-tachometer-alt spec-icon"></i> Akselerasi (0-100 km/jam)</td>
+          <td class="text-center">12.5 detik</td>
+          <td class="text-center">11.5 detik</td>
+          <td class="text-center">7.1 detik</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-cogs spec-icon"></i> Transmisi</td>
+          <td class="text-center">5-speed Automatic</td>
+          <td class="text-center">6-speed Automatic</td>
+          <td class="text-center">7-speed Dual Clutch</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-users spec-icon"></i> Kapasitas</td>
+          <td class="text-center">7 Penumpang</td>
+          <td class="text-center">8 Penumpang</td>
+          <td class="text-center">4 Penumpang</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-ruler-combined spec-icon"></i> Dimensi (PxLxT)</td>
+          <td class="text-center">4,825 x 1,855 x 1,835 mm</td>
+          <td class="text-center">4,735 x 1,830 x 1,795 mm</td>
+          <td class="text-center">3,850 x 1,727 x 1,414 mm</td>
+        </tr>
+        <tr class="highlight">
+          <td><i class="fas fa-weight spec-icon"></i> Berat Kosong</td>
+          <td class="text-center">2,205 kg</td>
+          <td class="text-center">1,760 kg</td>
+          <td class="text-center">1,265 kg</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-truck-monster spec-icon"></i> Sistem Penggerak</td>
+          <td class="text-center"><span class="badge-feature">4WD Super Select</span></td>
+          <td class="text-center"><span class="badge-feature">2WD</span></td>
+          <td class="text-center"><span class="badge-feature">FWD</span></td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-gas-pump spec-icon"></i> Konsumsi BBM</td>
+          <td class="text-center">9.2 km/liter</td>
+          <td class="text-center">11.5 km/liter</td>
+          <td class="text-center">14.8 km/liter</td>
+        </tr>
+        <tr class="highlight">
+          <td><i class="fas fa-money-bill-wave spec-icon"></i> Harga Mulai</td>
+          <td class="text-center">Rp 600 jutaan</td>
+          <td class="text-center">Rp 400 jutaan</td>
+          <td class="text-center">Rp 700 jutaan</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-star spec-icon"></i> Fitur Unggulan</td>
+          <td class="text-center">
+            <span class="badge-feature">Off-road</span>
+            <span class="badge-feature">Tangguh</span>
+            <span class="badge-feature">Ground Clearance Tinggi</span>
+          </td>
+          <td class="text-center">
+            <span class="badge-feature">Nyaman</span>
+            <span class="badge-feature">Ekonomis</span>
+            <span class="badge-feature">Luas</span>
+          </td>
+          <td class="text-center">
+            <span class="badge-feature">Desain Ikonik</span>
+            <span class="badge-feature">Performa</span>
+            <span class="badge-feature">Premium</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="text-center mt-3 mb-5">
+  <a href="mobil.html" class="btn">Lihat Detail Mobil</a>
+</div>
+<div data-aos="fade-zoom-in" data-aos-delay="300" data-aos-easing="ease-in-back" data-aos-offset="0">
+<button class="button type1" id="sewa">
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<div id="particles-js"></div>
+<script>
+   particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60 },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" },
+        "polygon": { "nb_sides": 5 },
+      },
+      "color": { "value": "#ffffff" },
+      "opacity": { "value": 0.2 },
+      "size": { "value": 3 },
+      "move": {
+        "enable": true,
+        "speed": 1.5,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "bounce": false,
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
+
+// smooth scroll boy
+  const tableSection = document.getElementById("tabel-mobil");
+  if (tableSection) {
+    tableSection.scrollIntoView({ behavior: "smooth" });
+  }
+// animasi tabel pada saat terlihat/terbuka
+  const wrapper = document.getElementById("tableWrapper");
+  if (wrapper.style.display === "none" || wrapper.style.display === "") {
+    wrapper.style.display = "block";
+    wrapper.classList.remove("fade-out");
+    void wrapper.offsetWidth;
+    wrapper.classList.add("fade-in");
+  }
+// tombol munculkan atau sembunyikan tabel
+function toggleTable() {
+    const wrapper = document.getElementById('tableWrapper');
+
+    if (wrapper.style.display === 'none' || wrapper.style.display === '') {
+      wrapper.style.display = 'block';
+      wrapper.classList.remove('fade-out');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('fade-in');
+    } 
+    else {
+      wrapper.classList.remove('fade-in');
+      void wrapper.offsetWidth;
+      wrapper.classList.add('fade-out');
+
+      wrapper.addEventListener('animationend', () => {
+        wrapper.style.display = 'none';
+      }, { once: true });
+    }
+  }
+// tombol sewa dibawah tabel
+  document.querySelector('.btn2').onclick = toggleTable;
+  const sewaButton = document.getElementById('sewa');
+
+  sewaButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    window.location.href = 'login.html';
+  });
+  AOS.init();
+</script>
+</body>
+</html>

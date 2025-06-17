@@ -12,21 +12,12 @@
     <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       object-fit: cover;
-    }
-    .background-vid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
     }
     ::selection {
       background-color: gray;
@@ -214,7 +205,14 @@
 .gif {
   gap: 10px;
 }
-
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
 @media screen and (max-width: 768px){
   .form {
     backdrop-filter: none;
@@ -242,20 +240,25 @@
     transform: translateY(-100px);
   }
 }
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
   </style>
 </head>
 <body>
-  <!-- background video -->
-  <video class="background-vid" autoplay loop muted>
-    <source src="assets/13820717_960_540_30fps.mp4" type="video/mp4"/>
-  </video>
   <div class="container">
     <div class="gif">
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module" class="gif-a"></script>
 <dotlottie-player src="https://lottie.host/785d061e-00ee-4f7c-a9d9-9a8728c1415e/meuGcTrPby.lottie" background="transparent" speed="1.5" class="gif-a" style="width: 200px; height: 200px;" loop autoplay></dotlottie-player>
 </div>
     <form class="form needs-validation" id="loginForm" novalidate>
-  <p class="title">Login Dulu!</p>
+  <p class="title" id="title"></p>
 
   <div class="mb-3 w-100 position-relative">
     <input placeholder="Username" class="username input form-control" type="text" id="username" required autocomplete="username" />
@@ -277,6 +280,8 @@
   <button class="btn" type="submit">Login</button>
 </form>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<div id="particles-js"></div>
 <!-- loading -->
   <div id="page">
     <div id="container">
@@ -287,8 +292,14 @@
       <div id="h3">SewaMobilku</div>
     </div>
   </div>
-
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
   <script>
+    new TypeIt("#title", {
+    strings: "Login Dulu Cuy!",
+    speed: 130,
+    loop: true,
+    waitUntilVisible: true,
+}).go();
     // loading
     const loading = document.getElementById('page');
     window.addEventListener('load', function() {
@@ -298,6 +309,39 @@
         } 
       }, 2000)
     });
+    particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60 },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" },
+        "polygon": { "nb_sides": 5 },
+      },
+      "color": { "value": "#ffffff" },
+      "opacity": { "value": 0.2 },
+      "size": { "value": 3 },
+      "move": {
+        "enable": true,
+        "speed": 1.5,
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "bounce": false,
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" }
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 0.3 } },
+        "push": { "particles_nb": 4 }
+      }
+    },
+    "retina_detect": true
+  });
 // validasi form + tombol show password
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.getElementById('loginForm');
