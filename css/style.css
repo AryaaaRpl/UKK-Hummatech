@@ -161,6 +161,9 @@ a {
     display: block;
 }
 
+  
+
+
 .price-list-container {
     max-width: 900px;
     width: 100%;
@@ -841,6 +844,10 @@ a {
         min-height: 120px;
         width: 100%;
         aspect-ratio: 1;
+    }
+
+    .carousel-img .img2 {
+      width: min-content !important;
     }
 
     .carousel-control-prev,
